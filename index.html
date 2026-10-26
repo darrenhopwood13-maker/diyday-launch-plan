@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>DIY DAY - Launch Plan v1 · 26 October 2026</title>
+<meta name="description" content="DIY DAY launch plan: pricing, affiliate accounts, fix list, legal floor, campaign. Prepared for Dal Hopwood, 26 October 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* ── DIY DAY brand tokens, taken from src/styles.css + sampled from diyday-logo.png ── */
+  :root{
+    --ink:#00182E;          /* foreground  oklch(0.20 0.06 240) */
+    --ink-soft:#1E475E;     /* muted-fg    oklch(0.38 0.06 235) */
+    --sky:#A2DAF6;          /* background  oklch(0.86 0.07 230) */
+    --sky-deep:#B5DFF1;     /* muted       oklch(0.88 0.05 225) */
+    --cream:#F6F2E3;        /* card        oklch(0.96 0.02 95) */
+    --orange:#FF4404;       /* primary     oklch(0.66 0.23 35)  */
+    --red:#DE0A06;          /* sampled from logo lettering */
+    --teal:#009CA5;         /* secondary   oklch(0.62 0.13 200) */
+    --amber:#F9A300;        /* warning     oklch(0.78 0.18 75)  */
+    --border:#002D4E;       /* border      oklch(0.28 0.09 235) */
+    --line:rgba(0,45,78,.18);
+    --shadow:0 4px 0 0 var(--border), 0 14px 34px -14px rgba(0,24,46,.45);
+    --shadow-sm:0 2px 0 0 var(--border);
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; font-family:Inter,system-ui,-apple-system,sans-serif;
+    background:var(--sky); color:var(--ink);
+    -webkit-font-smoothing:antialiased; line-height:1.55;
+    padding-bottom:80px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  /* ── progress ── */
+  #progressbar{
+    position:sticky; top:0; z-index:60;
+    background:var(--ink); color:var(--cream);
+    border-bottom:4px solid var(--border);
+  }
+  #progressbar .wrap{display:flex;align-items:center;gap:14px;padding:10px 20px}
+  .plabel{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+  .ptrack{flex:1;height:10px;background:rgba(246,242,227,.18);border-radius:99px;overflow:hidden;min-width:60px}
+  .pfill{height:100%;width:0%;background:var(--orange);transition:width .35s ease;border-radius:99px}
+  .pcount{font-variant-numeric:tabular-nums;font-weight:900;font-size:13px;white-space:nowrap}
+  .preset{background:none;border:1.5px solid rgba(246,242,227,.35);color:var(--cream);
+    font:inherit;font-size:11px;font-weight:700;padding:5px 10px;border-radius:99px;cursor:pointer}
+  .preset:hover{border-color:var(--orange);color:var(--orange)}
+
+  /* ── header ── */
+  header.hero{padding:40px 0 26px}
+  .kicker{display:inline-flex;align-items:center;gap:8px;background:var(--cream);
+    border:2px solid var(--border);border-radius:99px;padding:6px 14px;
+    font-size:10px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+  h1{font-size:clamp(38px,7vw,68px);line-height:.94;margin:18px 0 0;font-weight:900;letter-spacing:-.03em}
+  h1 .accent{color:var(--red)}
+  .sub{margin-top:14px;font-size:17px;max-width:60ch;color:var(--ink-soft);font-weight:500}
+  .meta{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--cream);border:2px solid var(--border);border-radius:10px;
+    padding:7px 12px;font-size:12px;font-weight:700}
+  .chip b{color:var(--red)}
+
+  /* ── nav ── */
+  nav.jump{display:flex;gap:8px;overflow-x:auto;padding:6px 0 18px;scrollbar-width:none}
+  nav.jump::-webkit-scrollbar{display:none}
+  nav.jump a{flex:0 0 auto;background:var(--cream);border:2px solid var(--border);border-radius:99px;
+    padding:9px 15px;font-size:12.5px;font-weight:800;text-decoration:none;color:var(--ink);
+    min-height:44px;display:inline-flex;align-items:center}
+  nav.jump a:hover{background:var(--orange);color:#fff;border-color:var(--orange)}
+
+  /* ── sections ── */
+  section{margin:0 0 30px}
+  .card{background:var(--cream);border:3px solid var(--border);border-radius:var(--radius);
+    padding:26px;box-shadow:var(--shadow)}
+  h2{font-size:clamp(24px,4vw,34px);line-height:1.05;margin:0 0 6px;font-weight:900;letter-spacing:-.02em}
+  h2 .num{color:var(--orange);font-variant-numeric:tabular-nums;margin-right:10px}
+  .lede{color:var(--ink-soft);font-size:15px;margin:0 0 20px;max-width:75ch}
+  h3{font-size:17px;margin:26px 0 10px;font-weight:900;letter-spacing:-.01em}
+  h3:first-child{margin-top:0}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:8px}
+  strong{font-weight:800}
+  code{background:rgba(0,45,78,.09);padding:1.5px 6px;border-radius:5px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em}
+  a{color:var(--red);font-weight:700;text-decoration-thickness:2px;text-underline-offset:2px}
+
+  /* ── callouts ── */
+  .flag{border-left:6px solid var(--orange);background:rgba(255,68,4,.07);
+    padding:14px 16px;border-radius:0 10px 10px 0;margin:16px 0;font-size:14.5px}
+  .flag.stop{border-left-color:var(--red);background:rgba(222,10,6,.07)}
+  .flag.ok{border-left-color:var(--teal);background:rgba(0,156,165,.09)}
+  .flag .t{display:block;font-weight:900;text-transform:uppercase;letter-spacing:.1em;
+    font-size:10.5px;margin-bottom:5px;color:var(--ink-soft)}
+
+  /* ── tables ── */
+  .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:620px}
+  th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;
+    padding:10px 12px;border-bottom:3px solid var(--border);white-space:nowrap;background:rgba(0,45,78,.05)}
+  td{padding:12px;border-bottom:1.5px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .money{font-variant-numeric:tabular-nums;font-weight:800;white-space:nowrap}
+
+  /* ── pills ── */
+  .pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:10.5px;
+    font-weight:900;text-transform:uppercase;letter-spacing:.07em;white-space:nowrap}
+  .pill.me{background:var(--teal);color:#fff}
+  .pill.you{background:var(--orange);color:#fff}
+  .pill.legal{background:var(--ink);color:var(--cream)}
+  .pill.no{background:rgba(222,10,6,.14);color:var(--red)}
+  .pill.yes{background:rgba(0,156,165,.16);color:#00727A}
+  .pill.wait{background:rgba(249,163,0,.22);color:#8A5A00}
+
+  /* ── checklist ── */
+  .chk{display:flex;gap:12px;align-items:flex-start;padding:11px 12px;border-radius:12px;
+    border:2px solid transparent;cursor:pointer;transition:background .15s}
+  .chk:hover{background:rgba(0,45,78,.05)}
+  .chk:focus-within{outline:3px solid var(--orange);outline-offset:2px}
+  .chk input{appearance:none;flex:0 0 auto;width:24px;height:24px;margin:1px 0 0;
+    border:2.5px solid var(--border);border-radius:7px;background:#fff;cursor:pointer;position:relative}
+  .chk input:checked{background:var(--teal);border-color:var(--teal)}
+  .chk input:checked::after{content:"";position:absolute;left:7px;top:3px;width:6px;height:11px;
+    border:solid #fff;border-width:0 3px 3px 0;transform:rotate(43deg)}
+  .chk input:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+  .chk .body{flex:1;min-width:0}
+  .chk .txt{font-size:14.5px;font-weight:600;line-height:1.45}
+  .chk input:checked + .body .txt{opacity:.5;text-decoration:line-through}
+  .chk .note{font-size:12.5px;color:var(--ink-soft);margin-top:3px}
+  .chk-group{border:2px solid var(--line);border-radius:14px;padding:8px;margin:14px 0}
+  .chk-group > h4{margin:8px 12px 4px;font-size:12px;text-transform:uppercase;
+    letter-spacing:.14em;color:var(--ink-soft)}
+
+  /* ── calculator ── */
+  .calc{background:var(--ink);color:var(--cream);border-radius:var(--radius);padding:24px;margin:20px 0}
+  .calc h3{color:var(--cream);margin:0 0 4px}
+  .calc .hint{color:rgba(246,242,227,.62);font-size:12.5px;margin-bottom:18px}
+  .ctrl{margin:16px 0}
+  .ctrl label{display:flex;justify-content:space-between;font-size:12.5px;font-weight:800;
+    text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px}
+  .ctrl label span{color:var(--orange);font-variant-numeric:tabular-nums;font-size:15px}
+  input[type=range]{width:100%;height:32px;appearance:none;background:transparent;cursor:pointer}
+  input[type=range]::-webkit-slider-runnable-track{height:8px;background:rgba(246,242,227,.22);border-radius:99px}
+  input[type=range]::-webkit-slider-thumb{appearance:none;width:26px;height:26px;border-radius:50%;
+    background:var(--orange);border:3px solid var(--ink);margin-top:-9px;box-shadow:0 0 0 2px var(--orange)}
+  input[type=range]::-moz-range-track{height:8px;background:rgba(246,242,227,.22);border-radius:99px}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px;border:3px solid var(--ink);
+    border-radius:50%;background:var(--orange)}
+  input[type=range]:focus-visible{outline:3px solid var(--amber);outline-offset:4px;border-radius:99px}
+  .out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
+  .outdiv{background:rgba(246,242,227,.09);border-radius:12px;padding:14px}
+  .outdiv .lab{font-size:10.5px;text-transform:uppercase;letter-spacing:.11em;
+    color:rgba(246,242,227,.65);font-weight:800}
+  .outdiv .val{font-size:26px;font-weight:900;font-variant-numeric:tabular-nums;margin-top:4px;letter-spacing:-.02em}
+  .outdiv .val.hero-val{color:var(--orange)}
+  .outdiv .fine{font-size:11px;color:rgba(246,242,227,.55);margin-top:2px}
+  .calcfoot{font-size:11.5px;color:rgba(246,242,227,.55);margin-top:16px;
+    border-top:1px solid rgba(246,242,227,.16);padding-top:12px}
+
+  /* ── copy blocks ── */
+  .copybox{position:relative;background:#fff;border:2px dashed var(--border);
+    border-radius:12px;padding:16px 16px 46px;margin:12px 0;font-size:13.5px}
+  .copybox .txt{white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12.5px;line-height:1.6;color:var(--ink)}
+  .copybtn{position:absolute;right:10px;bottom:10px;background:var(--ink);color:var(--cream);
+    border:none;border-radius:9px;padding:8px 14px;font:inherit;font-size:11.5px;font-weight:900;
+    text-transform:uppercase;letter-spacing:.09em;cursor:pointer;min-height:34px}
+  .copybtn:hover{background:var(--orange)}
+  .copybtn:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+  .copybtn.done{background:var(--teal)}
+
+  /* ── lanes ── */
+  .lanes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:16px 0}
+  .lane{background:#fff;border:2.5px solid var(--border);border-radius:14px;padding:18px;box-shadow:var(--shadow-sm)}
+  .lane .tag{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;
+    color:#fff;background:var(--ink);padding:3px 9px;border-radius:99px;display:inline-block}
+  .lane.diy .tag{background:var(--red)} .lane.inst .tag{background:var(--orange)} .lane.at .tag{background:var(--teal)}
+  .lane h4{margin:11px 0 7px;font-size:15px;font-weight:900;line-height:1.25}
+  .lane p{font-size:13px;margin:0 0 8px;color:var(--ink-soft)}
+  .lane .mech{font-size:12.5px;background:rgba(0,45,78,.05);border-radius:9px;padding:10px;margin-top:10px}
+  .lane .mech b{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--ink-soft);margin-bottom:4px}
+
+  /* ── phases ── */
+  .phase{display:grid;grid-template-columns:auto 1fr;gap:16px;margin:0 0 4px}
+  .phnum{width:44px;height:44px;border-radius:12px;background:var(--ink);color:var(--cream);
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;
+    box-shadow:var(--shadow-sm)}
+  .phase.done .phnum{background:var(--teal)}
+  .phbody{padding-bottom:22px;border-left:2px dashed var(--line);margin-left:21px;
+    padding-left:22px;margin-top:-22px;padding-top:22px}
+  .phase:last-child .phbody{border-left:none}
+  .phbody h4{margin:0;font-size:16px;font-weight:900}
+  .phbody .when{font-size:11.5px;font-weight:800;text-transform:uppercase;
+    letter-spacing:.1em;color:var(--orange);margin:3px 0 9px}
+
+  footer{margin-top:40px;padding:26px 0;border-top:3px solid var(--border);font-size:12px;color:var(--ink-soft)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:flex-start}
+  .sig{font-weight:900;color:var(--ink);font-size:13px}
+  .disclaim{max-width:62ch}
+
+  @media(max-width:620px){
+    .card{padding:20px 16px}
+    header.hero{padding:26px 0 18px}
+  }
+  /* ── print: white, dark text, no chrome ── */
+  @media print{
+    @page{margin:14mm}
+    body{background:#fff;color:#000;padding:0;font-size:10.5pt}
+    #progressbar,nav.jump,.copybtn,.preset,.calc,#tobottom{display:none!important}
+    .card{background:#fff;border:1px solid #999;box-shadow:none;page-break-inside:avoid;padding:14px}
+    .calc{background:#fff;border:1px solid #999;color:#000}
+    .calc h3,.calc .hint,.outdiv .lab,.calcfoot{color:#000}
+    .outdiv{background:#f2f2f2;border:1px solid #ddd}
+    .outdiv .val,.outdiv .val.hero-val{color:#000}
+    .lane{box-shadow:none}
+    a{color:#000;text-decoration:underline}
+    .chk{page-break-inside:avoid}
+    section{page-break-inside:auto}
+    h2{page-break-after:avoid}
+    table{min-width:0;font-size:9pt}
+    th{background:#eee}
+  }
+</style>
+</head>
+<body>
+
+<div id="progressbar">
+  <div class="wrap">
+    <span class="plabel">Launch progress</span>
+    <div class="ptrack"><div class="pfill" id="pfill"></div></div>
+    <span class="pcount" id="pcount">0 / 0</span>
+    <button class="preset" id="reset" type="button">Reset</button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker"><span class="dot"></span>Launch plan · v1</span>
+    <h1>Get DIY DAY<br><span class="accent">out the door.</span></h1>
+    <p class="sub">Pricing, affiliate accounts, the fix list, the legal floor and the campaign - in the
+      order it has to happen. Everything here is grounded in what's actually in the repo and the live
+      site as of 26 October 2026.</p>
+    <div class="meta">
+      <span class="chip">For <b>Dal Hopwood</b></span>
+      <span class="chip">Prepared <b>26 Oct 2026</b></span>
+      <span class="chip">Repo <b>DIYDAY</b> · private</span>
+      <span class="chip">Live at <b>diyday.uk</b></span>
+      <span class="chip">Status <b>Not launch-ready</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="jump" aria-label="Sections">
+    <a href="#state">1 · Where it is</a>
+    <a href="#price">2 · Pricing</a>
+    <a href="#offer">3 · The offer</a>
+    <a href="#affil">4 · Affiliate</a>
+    <a href="#fix">5 · Fix list</a>
+    <a href="#legal">6 · Legal floor</a>
+    <a href="#campaign">7 · Campaign</a>
+    <a href="#seq">8 · Sequence</a>
+  </nav>
+
+  <!-- ═══════════ 1 ═══════════ -->
+  <section id="state">
+    <div class="card">
+      <h2><span class="num">1</span>Where it actually is</h2>
+      <p class="lede">Straight version, because a launch plan built on flattery wastes your money.</p>
+
+      <h3>Solid</h3>
+      <ul>
+        <li>The app builds clean from source - I ran it: <strong>5.97 seconds</strong>, no errors.</li>
+        <li>Live on <code>diyday.uk</code>; all five routes return <strong>200</strong>.</li>
+        <li>Supabase schema is properly done - five tables, row-level security on every one, policies correct.</li>
+        <li>The AI diagnosis genuinely works. I tested it live: a dripping tap returned three sensible
+          causes with steps, difficulty and timings.</li>
+        <li>14 hand-written UK-specific knowledge tips. That's real content and it's accurate.</li>
+      </ul>
+
+      <h3>Blocking launch</h3>
+      <div class="flag stop">
+        <span class="t">Four things must be true before a single ad runs</span>
+        <strong>1.</strong> Three public claims are false and are live right now.
+        <strong>2.</strong> There is no legal paperwork to take money with.
+        <strong>3.</strong> The AI endpoint has no authentication or rate limiting, so AI spend is uncapped.
+        <strong>4.</strong> There is nothing to buy.
+      </div>
+
+      <p>None of those are hard. Three of the four are a week's work. The fourth is the pricing
+        decision in the next section.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ 2 ═══════════ -->
+  <section id="price">
+    <div class="card">
+      <h2><span class="num">2</span>Pricing - the decision</h2>
+      <p class="lede">You said you're not sure what to charge. Here's one recommendation with the
+        reasoning, not a menu.</p>
+
+      <div class="flag ok">
+        <span class="t">Recommendation</span>
+        <strong>£24.99 per year.</strong> Annual only at launch. A monthly option at
+        <strong>£4.99</strong> exists purely to make the annual look obvious - price it so nobody picks it.
+      </div>
+
+      <h3>Why annual first</h3>
+      <p>DIY is episodic. You fix a tap, then nothing happens for four months. A monthly subscription on
+        an app people open a handful of times a year churns hard - you'd spend all your effort re-acquiring
+        people who already paid you once. One annual decision, no cancellation problem, and the money lands
+        up front where it can pay for the campaign.</p>
+
+      <h3>Why £24.99 and not £4.99 a month</h3>
+      <p>Because the honest comparison is enormous. A plumber or electrician charges <strong>£80-150</strong>
+        just to turn up in most of the UK. One avoided call-out pays for three to six years of DIY DAY.
+        That is the marketing line, and it's true, which is why it beats a fake discount.</p>
+
+      <h3>What the money has to cover</h3>
+      <div class="scroll">
+      <table>
+        <thead><tr><th>Cost</th><th>Per subscriber / year</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Stripe (UK consumer card)</td><td class="money">£0.57</td><td>1.5% + 20p per charge</td></tr>
+          <tr><td>AI usage (Gemini Flash via Lovable)</td><td class="money">~£0.30-1.50</td><td>Depends how hard they lean on it. Unlimited needs a fair-use cap.</td></tr>
+          <tr><td>Supabase + Cloudflare hosting</td><td class="money">pennies</td><td>Already in place</td></tr>
+          <tr><td><strong>Roughly left to you</strong></td><td class="money">~£23</td><td>Before any ad spend</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p style="font-size:13px;color:var(--ink-soft)">VAT: you don't register until £90,000 of turnover on a
+        rolling 12 months. That's frozen at £90,000 into 2026/27. Once you cross it, prices need to carry 20%
+        VAT - so don't market £24.99 as permanent.</p>
+
+      <div class="calc">
+        <h3>What it's actually worth</h3>
+        <p class="hint">Drag it. The maths is live - gross, less Stripe, is what lands in the bank.</p>
+
+        <div class="ctrl">
+          <label for="subsRange">Paying subscribers <span id="subsv">250</span></label>
+          <input type="range" id="subsRange" min="10" max="5000" step="10" value="250">
+        </div>
+        <div class="ctrl">
+          <label for="priceRange">Annual price <span id="pricev">£24.99</span></label>
+          <input type="range" id="priceRange" min="999" max="4999" step="100" value="2499">
+        </div>
+
+        <div class="out">
+          <div class="outdiv"><div class="lab">Gross a year</div><div class="val" id="gross">£6,248</div></div>
+          <div class="outdiv"><div class="lab">Stripe takes</div><div class="val" id="stripe">-£144</div></div>
+          <div class="outdiv"><div class="lab">Lands in the bank</div><div class="val hero-val" id="net">£6,104</div></div>
+          <div class="outdiv"><div class="lab">Per month, average</div><div class="val" id="permo">£509</div></div>
+        </div>
+
+        <div class="calcfoot">
+          Stripe modelled at 1.5% + 20p per charge (UK consumer cards). Excludes AI usage, ad spend and
+          corporation tax. Figures are illustrative, not a forecast - the point is the shape, not the number.
+        </div>
+      </div>
+
+      <div class="flag">
+        <span class="t">The uncomfortable bit</span>
+        To clear £6k a year you need 250 people to hand you £25. That is not a viral number - it's a
+        few hundred people, which is achievable with one good campaign. But it is not a business you can
+        run ads to profitably at £25 a head until you know your conversion rate. Which is why affiliate
+        money, in the next section, matters less than it looks.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 3 ═══════════ -->
+  <section id="offer">
+    <div class="card">
+      <h2><span class="num">3</span>The offer - three free goes</h2>
+      <p class="lede">Your instinct was right and it's generous enough to be a real hook. Here's the exact split.</p>
+
+      <div class="scroll">
+      <table>
+        <thead><tr><th style="width:34%">What</th><th>Free · no card, no sign-up</th><th>DIY DAY Pro · £24.99/yr</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Diagnoses</strong></td>
+            <td><strong>3</strong> - the hook</td>
+            <td>Unlimited, with follow-up chat on any fix</td>
+          </tr>
+          <tr>
+            <td><strong>Your projects</strong></td>
+            <td>One at a time, current session only</td>
+            <td>Saved, named, come back to any of them later</td>
+          </tr>
+          <tr>
+            <td><strong>Parts &amp; shopping</strong></td>
+            <td>Part search and the stockist links</td>
+            <td>Full basket with running total, saved lists, price bands per shop</td>
+          </tr>
+          <tr>
+            <td><strong>Knowledge</strong></td>
+            <td>All 14 tips + community forum</td>
+            <td>+ video walkthrough on every fix</td>
+          </tr>
+          <tr>
+            <td><strong>Safety gate</strong></td>
+            <td colspan="2" style="background:rgba(222,10,6,.05)"><strong>Gas and mains electricity stop for
+              everyone</strong>, paid or not. See section 6.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h3>The conversion moment</h3>
+      <p>Don't ask for money on arrival. Ask at the end of diagnosis three - they've just watched it work
+        three times, they've got a shopping list in front of them, and the next thing they'll do is hit the
+        wall. That's the only moment where £25 feels cheap. Everything else is a guess.</p>
+
+      <div class="flag stop">
+        <span class="t">Build constraint - read before any paywall work</span>
+        The three free diagnoses must be counted <strong>on the server</strong>, not in the browser. Right now
+        the endpoint has no auth, so a browser-side counter can be bypassed trivially,
+        and every bypass costs you real AI credits. <strong>Auth first, then the meter,
+        then the paywall.</strong> That order, or it leaks.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 4 ═══════════ -->
+  <section id="affil">
+    <div class="card">
+      <h2><span class="num">4</span>Affiliate - every account, in order</h2>
+      <p class="lede">You asked me to set these up. I can't create accounts in your name - they want your
+        address, bank details and tax status, and I won't hold those. What I can do is hand you every
+        application pre-written so each one is ten minutes.</p>
+
+      <div class="flag stop">
+        <span class="t">Read this before you spend a day on it</span>
+        <strong>Screwfix's affiliate programme is closed to new applicants.</strong> That's from their own
+        page - "up to 1% commission", 14-day cookie, average order over £90, and "unfortunately, our
+        affiliate program is closed to new applicants". They're the single most important retailer for your
+        audience and you cannot get in.
+      </div>
+
+      <h3>What the money is actually like</h3>
+      <p>At a typical £40 DIY basket, commission looks like this. Every figure below is arithmetic, not a
+        promise - the rates vary and get renegotiated.</p>
+
+      <div class="scroll">
+      <table>
+        <thead><tr><th>Retailer</th><th>Rate found</th><th>On a £40 basket</th><th>On a £90 basket</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Screwfix</td><td>up to 1%</td><td class="money">£0.40</td><td class="money">£0.90</td><td><span class="pill no">Closed</span></td></tr>
+          <tr><td>Wickes</td><td>~0.40%</td><td class="money">£0.16</td><td class="money">£0.36</td><td><span class="pill yes">Open</span></td></tr>
+          <tr><td>Travis Perkins</td><td>~1%</td><td class="money">£0.40</td><td class="money">£0.90</td><td><span class="pill yes">Open · Awin</span></td></tr>
+          <tr><td>B&amp;Q</td><td>not published</td><td class="money">-</td><td class="money">-</td><td><span class="pill yes">Open · Impact</span></td></tr>
+          <tr><td>Amazon UK</td><td>~5% home, 3% fallback</td><td class="money">£2.00</td><td class="money">£4.50</td><td><span class="pill yes">Open · best payer</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p style="font-size:12.5px;color:var(--ink-soft)">Screwfix figure is from Screwfix's own affiliate page.
+        Wickes, Travis Perkins and Amazon figures are from affiliate directories and are
+        <strong>unverified at source</strong> - treat as indicative until you see the merchant terms after
+        approval. Rates change without notice.</p>
+
+      <div class="flag">
+        <span class="t">The number that decides your strategy</span>
+        <strong>One £24.99 annual subscriber is worth roughly 62 converted £40 orders at 1%.</strong>
+        Affiliate is not a revenue line. It's a rounding error that might cover hosting. Build it because it's
+        free money and it improves the parts page, but <strong>do not price the product assuming it pays</strong>
+        - and never turn it into a discount promise, because 1% cannot fund 25%.
+      </div>
+
+      <h3>The accounts, in the order to open them</h3>
+      <div class="scroll">
+      <table>
+        <thead><tr><th>#</th><th>Account</th><th>Why this order</th><th>Cost</th><th>Realistic approval</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="money">1</td>
+            <td><strong>Amazon Associates UK</strong><br><a href="https://affiliate-program.amazon.co.uk/" target="_blank" rel="noopener">affiliate-program.amazon.co.uk</a></td>
+            <td>The only network that reliably approves a brand-new site, and it pays 5x what the sheds do. Needs 3 qualifying sales in 180 days or you're out - so apply once the site can take traffic.</td>
+            <td class="money">Free</td>
+            <td><span class="pill wait">Days</span></td>
+          </tr>
+          <tr>
+            <td class="money">2</td>
+            <td><strong>Awin - publisher account</strong><br><a href="https://www.awin.com/gb/publishers" target="_blank" rel="noopener">awin.com/gb/publishers</a></td>
+            <td>Network-level account. Gets you in front of Wickes and Travis Perkins. They want a live site with content - your 14 tips are the argument.</td>
+            <td class="money">Free</td>
+            <td><span class="pill wait">1-3 weeks</span></td>
+          </tr>
+          <tr>
+            <td class="money">3</td>
+            <td><strong>Impact - B&amp;Q</strong><br><a href="https://www.diy.com/corporate/business-services/affiliates-program" target="_blank" rel="noopener">diy.com → Affiliates Program</a></td>
+            <td>B&amp;Q run theirs through Impact. Apply direct from that page.</td>
+            <td class="money">Free</td>
+            <td><span class="pill wait">1-3 weeks</span></td>
+          </tr>
+          <tr>
+            <td class="money">4</td>
+            <td><strong>Screwfix - waitlist</strong><br><a href="mailto:affiliates@screwfix.com">affiliates@screwfix.com</a></td>
+            <td>Closed, but email and ask to be notified when they reopen. Costs nothing. Do not build a plan on it.</td>
+            <td class="money">Free</td>
+            <td><span class="pill no">Closed</span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="flag stop">
+        <span class="t">Be realistic about month one</span>
+        Networks want to see traffic before they approve you. A site with zero visitors gets rejected or
+        ignored. <strong>Affiliate income in the launch month is £0</strong> - plan for it to arrive around
+        month three, after the campaign has put people through the site. It is a reason to keep the parts
+        page good, not a reason to delay launch.
+      </div>
+
+      <h3>Application copy - paste this</h3>
+      <p style="font-size:13.5px">Networks ask the same four questions. Here's a filled answer for each.
+        Change the traffic figure once you have a real one.</p>
+
+      <div class="copybox">
+        <div class="txt" id="app1">Site name: DIY DAY
+URL: https://diyday.uk
+Category: Home improvement / DIY advice
+Audience: UK homeowners and first-time DIYers, 30-65, tackling repairs themselves rather than paying a tradesperson to attend.
+How the site makes money: free AI repair diagnosis for consumers; a paid annual membership for unlimited use.
+How we would promote you: contextual part links inside step-by-step repair guides, plus a parts finder that already sends users to retailer search pages. Links would sit next to the specific material being recommended, not in banners.
+Traffic: new site, launching Q4 2026. Existing content library of 14 in-depth repair guides, with short-form video planned.</div>
+        <button class="copybtn" data-copy="app1" type="button">Copy</button>
+      </div>
+
+      <div class="copybox">
+        <div class="txt" id="app2">Disclosure wording (legally required wherever a link appears)
+
+"We earn a small commission if you buy through our links. It costs you nothing extra."
+
+Place it above the retailer links, not in the footer. The ASA and CMA both treat hiding an affiliate
+relationship as a breach, and a footer link is not considered prominent enough for a page whose whole
+purpose is sending people to a shop.</div>
+        <button class="copybtn" data-copy="app2" type="button">Copy</button>
+      </div>
+
+      <h3>What I'll do once accounts are live</h3>
+      <ul>
+        <li>Wrap every stockist link in the parts page and the project basket with your tracked URLs.</li>
+        <li>Add the disclosure above the link block, and to the project basket.</li>
+        <li>Add a <code>/disclosure</code> page so there's something to point at.</li>
+        <li>Keep Amazon as the default recommendation where a part is available there, because it pays 5x.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════ 5 ═══════════ -->
+  <section id="fix">
+    <div class="card">
+      <h2><span class="num">5</span>The fix list</h2>
+      <p class="lede">Every item here is in a file I've read. Owner tells you who does it.</p>
+
+      <h3>Take the three false claims out</h3>
+
+      <div class="flag stop">
+        <span class="t">Claim 1 - the 25%</span>
+        <strong>Where:</strong> <code>src/routes/parts.tsx</code> (the promo block, around line 230) and
+        <code>src/routes/index.tsx</code> (Membership section, around line 157).<br>
+        <strong>Says:</strong> "Up to 25% off when you shop through DIY DAY" and "unlock trade-price deals
+        across every stockist".<br>
+        <strong>Reality:</strong> there is no discount scheme, no trade account, no code. The parts page builds
+        a public search URL and sends them to the shop.<br>
+        <strong>Replace with:</strong> the call-out maths. "A plumber charges £90 to turn up. DIY DAY Pro is
+        £24.99 a year." True, bigger, and it doesn't need a scheme behind it.
+      </div>
+
+      <div class="flag stop">
+        <span class="t">Claim 2 - live prices</span>
+        <strong>Where:</strong> <code>src/routes/index.tsx</code>, stockists section: "Live prices, deep links
+        - no fake numbers, no redirect tricks."<br>
+        <strong>Reality:</strong> <code>src/lib/pricing.ts</code> is a hand-written keyword table - taps
+        £18-120, boilers £600-1800. Its own comment says "never live retail prices".<br>
+        <strong>Note:</strong> the app itself is honest, it labels every figure "Est." It's the landing page
+        that lies about it. So fix the page, keep the app.
+      </div>
+
+      <div class="flag stop">
+        <span class="t">Claim 3 - no sign-up needed</span>
+        <strong>Where:</strong> <code>src/routes/index.tsx</code> says "Free · No sign-up needed · All major UK
+        stockists". <code>src/routes/parts.tsx</code> shows a padlock and "Sign up to unlock member prices" to
+        anyone logged out.<br>
+        <strong>Fix:</strong> decide which is true. Recommendation - parts search is free (it costs you nothing
+        and it's your best affiliate surface), and the paywall sits on diagnoses, not parts. That kills the
+        contradiction and gives the free tier more to be generous with.
+      </div>
+
+      <h3>Rebuild the login and pricing pages</h3>
+      <div class="chk-group">
+        <label class="chk"><input type="checkbox" data-k="login1">
+          <span class="body"><span class="txt">Rebuild <code>/auth</code> as a proper two-path page</span>
+          <span class="note">"Sign in" and "Create account" as equals. Right now it's a wall with no context
+          on why anyone would want an account.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="login2">
+          <span class="body"><span class="txt">Add the value line above the form</span>
+          <span class="note">Three free diagnoses, no card. Say what the account is for before asking for an email.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="login3">
+          <span class="body"><span class="txt">Build a real <code>/pricing</code> page</span>
+          <span class="note">Free vs Pro, side by side, £24.99 annual as the obvious pick. Doesn't exist yet.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="login4">
+          <span class="body"><span class="txt">Show remaining free diagnoses in the header once signed in</span>
+          <span class="note">"2 of 3 left" - the scarcity is the conversion, don't hide it.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="login5">
+          <span class="body"><span class="txt">Wire Stripe Checkout to the Pro button</span>
+          <span class="note">Stripe Checkout hosted, not a custom form. Fastest safe route, and it handles
+          SCA and receipts.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="login6">
+          <span class="body"><span class="txt">Build the cancellation route</span>
+          <span class="note">Required, not optional. One click in account settings, and it must actually work.</span></span></label>
+      </div>
+
+      <h3>Also on the list, lower priority</h3>
+      <div class="chk-group">
+        <label class="chk"><input type="checkbox" data-k="f1">
+          <span class="body"><span class="txt">Make the parts finder photo actually work</span>
+          <span class="note"><code>findIt()</code> in parts.tsx ignores the image and searches for "DIY part".
+          Snap a hinge, get told to search for "DIY part". Headline feature, currently dead.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="f2">
+          <span class="body"><span class="txt">Take "instructBrain" out of the consumer app</span>
+          <span class="note">The header says "powered by instructBrain" and the AI introduces itself as a
+          30-year master handyman with an invented CV. Wrong brand in front of a consumer. Rename the
+          persona, keep the parent credit if you want it, but the handyman is not instructBrain.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="f3">
+          <span class="body"><span class="txt">Get <code>.env</code> out of git</span>
+          <span class="note">Committed and not gitignored. Nothing secret in it today - only the publishable
+          key and the Maps browser key, both browser-safe. But the day someone adds a service key it's in
+          history forever. Add to <code>.gitignore</code>, <code>git rm --cached .env</code>.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="f4">
+          <span class="body"><span class="txt">Fix Project of the Month</span>
+          <span class="note">It reads localStorage while /forum reads Supabase, so it shows nothing to a new
+          visitor even when there are entries. Point it at the real data.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="f5">
+          <span class="body"><span class="txt">Write a README</span>
+          <span class="note">There isn't one. Future you, in a year, will not remember how to run this.</span></span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 6 ═══════════ -->
+  <section id="legal">
+    <div class="card">
+      <h2><span class="num">6</span>The legal floor</h2>
+      <p class="lede">You cannot take a card payment without this. It's the least fun section and the one
+        that costs the most if skipped.</p>
+
+      <div class="flag">
+        <span class="t">On the record</span>
+        I'm not a solicitor and this isn't legal advice. What follows is what a UK consumer app needs to have
+        before it charges money - the drafting should come from someone qualified, or a reputable template
+        reviewed by one.
+      </div>
+
+      <div class="chk-group">
+        <label class="chk"><input type="checkbox" data-k="l1">
+          <span class="body"><span class="txt">Terms and conditions</span>
+          <span class="note">Consumer-facing. Must cover what Pro actually includes, the "unlimited" fair-use
+          limit, and that the AI is guidance not professional advice. Budget £100-300 for a reviewed set.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="l2">
+          <span class="body"><span class="txt">Privacy policy</span>
+          <span class="note">UK GDPR. Critically: photos of people's homes are personal data, and they're
+          going to your AI provider. That has to be disclosed plainly, and you need a lawful basis.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="l3">
+          <span class="body"><span class="txt">Business details in the footer</span>
+          <span class="note">Company name, registered number and registered address. A legal requirement for
+          UK online traders, not a nicety. Orders from 2002 regs; still enforced.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="l4">
+          <span class="body"><span class="txt">14-day cancellation route</span>
+          <span class="note">Consumer Contracts Regulations. Digital subscriptions can be cancelled within 14
+          days. Your terms can't remove it, so build the button rather than fight it.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="l5">
+          <span class="body"><span class="txt">Affiliate disclosure</span>
+          <span class="note">See section 4. Above the links, plain words, on every page that has them.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="l6">
+          <span class="body"><span class="txt">Cookie banner that isn't theatre</span>
+          <span class="note">Only needed if you run analytics or ads. If the campaign uses a pixel, you need
+          real consent, not a bar that says "by continuing you agree".</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="l7">
+          <span class="body"><span class="txt">Public liability insurance - check your cover</span>
+          <span class="note">You're giving repair guidance to the public. Worth a conversation with whoever
+          insures you before launch, not after an incident.</span></span></label>
+      </div>
+
+      <h3>The safety gate - do this properly</h3>
+      <div class="flag stop">
+        <span class="t">The one thing that should not be left to a prompt</span>
+        Right now the only guardrail is an instruction inside the AI prompt asking it to open with a red
+        warning on gas and mains electricity. A prompt is a hope, not a rule. It needs to be
+        <strong>enforced in code</strong>: detect gas, boiler, consumer unit, fuse board and mains terms
+        before the AI call, and return a hard stop that says get a Gas Safe registered engineer or a
+        qualified electrician, with no repair steps attached. Paid or free, no exceptions.
+      </div>
+      <p style="font-size:13.5px">This is the single highest-risk item on the whole page. A consumer app that
+        walks someone through a boiler because the model didn't feel like warning that day is a different
+        order of problem to a wrong price on a landing page.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ 7 ═══════════ -->
+  <section id="campaign">
+    <div class="card">
+      <h2><span class="num">7</span>The campaign - three lanes</h2>
+      <p class="lede">You're planning to run this alongside InstructSite and AgentTrac. There's a trap in
+        that: the three audiences are not the same person, so "we'll all promote each other" does nothing.
+        Each lane needs a different mechanic.</p>
+
+      <div class="lanes">
+        <div class="lane diy">
+          <span class="tag">Lane 1</span>
+          <h4>DIY DAY → homeowners</h4>
+          <p>The buyer. Episodic, searches when something breaks, price-sensitive but terrified of call-out fees.</p>
+          <div class="mech"><b>Mechanic</b>
+            14 tips become 14 short videos. One hook: "a plumber charges £90 to turn up, this is £24.99 a
+            year." Publish the tips free - they're the proof the app knows what it's doing.</div>
+        </div>
+        <div class="lane inst">
+          <span class="tag">Lane 2</span>
+          <h4>InstructSite → builders → their clients</h4>
+          <p>This is the strong one. InstructSite's users are contractors; their clients are exactly the
+            homeowners DIY DAY serves. It's not an ad swap, it's distribution.</p>
+          <div class="mech"><b>Mechanic</b>
+            Add a DIY DAY card to the handover pack. Every InstructSite job that completes hands the
+            homeowner a "here's the app for the jobs after we've gone" page. Builders look helpful, you get
+            a warm lead at the exact moment someone's about to start doing their own snagging.</div>
+        </div>
+        <div class="lane at">
+          <span class="tag">Lane 3</span>
+          <h4>AgentTrac → owners &amp; operators</h4>
+          <p>Weakest direct fit - business owners, not necessarily mid-repair. But the strongest story.</p>
+          <div class="mech"><b>Mechanic</b>
+            Don't sell DIY to them. Sell the build: "one bloke, one agent, a live consumer app in a month"
+            is the AgentTrac case study. DIY DAY becomes the proof, not the product, in that lane.</div>
+        </div>
+      </div>
+
+      <div class="flag ok">
+        <span class="t">The sequencing that matters</span>
+        Lane 2 first. It's the only lane where you're reaching a homeowner at the precise moment they need
+        you, through a channel you already own, at zero cost per acquisition. Lanes 1 and 3 both need spend
+        or effort to find strangers. Do the free one first, learn what converts, then buy attention.
+      </div>
+
+      <h3>What the campaign can honestly say</h3>
+      <ul>
+        <li><strong>"Three free repairs, no card, no sign-up."</strong> True once you ship the free tier.</li>
+        <li><strong>"A plumber charges £90 to turn up. This is £24.99 a year."</strong> True and checkable.</li>
+        <li><strong>"Written by a site manager with 20-odd years on the tools."</strong> True, and the strongest
+          asset you have. Use your name and your job - it's why the tips read like a builder wrote them.</li>
+        <li><strong>What it must not say:</strong> 25% off, live prices, or "no sign-up" anywhere near the parts page.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════ 8 ═══════════ -->
+  <section id="seq">
+    <div class="card">
+      <h2><span class="num">8</span>The sequence</h2>
+      <p class="lede">Five phases. Don't skip to five - phase one is what stops the campaign being a
+        complaint generator.</p>
+
+      <div class="chk-group">
+        <h4>Phase 1 · Honesty - this week</h4>
+        <label class="chk"><input type="checkbox" data-k="p1a"><span class="body"><span class="txt">Remove the 25% banner from /parts and / <span class="pill me">me</span></span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p1b"><span class="body"><span class="txt">Fix "live prices" and "no sign-up" copy <span class="pill me">me</span></span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p1c"><span class="body"><span class="txt">Get <code>.env</code> out of git <span class="pill me">me</span></span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p1d"><span class="body"><span class="txt">Confirm the pricing decision - £24.99/yr, £4.99/mo <span class="pill you">you</span></span></span></label>
+      </div>
+
+      <div class="chk-group">
+        <h4>Phase 2 · Close the doors - days 3 to 7</h4>
+        <label class="chk"><input type="checkbox" data-k="p2a"><span class="body"><span class="txt">Auth on both edge functions + rate limiting <span class="pill me">me</span></span><span class="note">Nothing else in this phase can be trusted until this is done.</span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p2b"><span class="body"><span class="txt">Server-side 3-diagnosis meter <span class="pill me">me</span></span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p2c"><span class="body"><span class="txt">Hard code-level safety stop on gas and mains <span class="pill me">me</span></span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p2d"><span class="body"><span class="txt">Rebuild /auth and build /pricing <span class="pill me">me</span></span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p2e"><span class="body"><span class="txt">Stripe account + Checkout + cancellation route <span class="pill you">you + me</span></span></span></label>
+      </div>
+
+      <div class="chk-group">
+        <h4>Phase 3 · Paperwork - runs in parallel</h4>
+        <label class="chk"><input type="checkbox" data-k="p3a"><span class="body"><span class="txt">Commission T&amp;Cs, privacy policy, disclosure page <span class="pill legal">solicitor / template</span></span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p3b"><span class="body"><span class="txt">Business details in the footer <span class="pill you">you</span></span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p3c"><span class="body"><span class="txt">Open Amazon Associates, then Awin, then B&amp;Q <span class="pill you">you</span></span><span class="note">Section 4 has the copy. Ten minutes each. Expect £0 for the first quarter.</span></span></label>
+      </div>
+
+      <div class="chk-group">
+        <h4>Phase 4 · Soft launch - week 3</h4>
+        <label class="chk"><input type="checkbox" data-k="p4a"><span class="body"><span class="txt">Hand it to 20 real people and watch them use it <span class="pill you">you</span></span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p4b"><span class="body"><span class="txt">Check the third-diagnosis wall converts or confuses <span class="pill you">you</span></span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p4c"><span class="body"><span class="txt">Fix what they got stuck on <span class="pill me">me</span></span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p4d"><span class="body"><span class="txt">Publish all 14 tips as free content <span class="pill me">me</span></span></span></label>
+      </div>
+
+      <div class="chk-group">
+        <h4>Phase 5 · Campaign - week 4+</h4>
+        <label class="chk"><input type="checkbox" data-k="p5a"><span class="body"><span class="txt">InstructSite handover-pack card live <span class="pill me">me</span></span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p5b"><span class="body"><span class="txt">Short-form video from the 14 tips <span class="pill me">me</span></span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p5c"><span class="body"><span class="txt">AgentTrac case study written up <span class="pill me">me</span></span></span></label>
+        <label class="chk"><input type="checkbox" data-k="p5d"><span class="body"><span class="txt">Only now consider paid spend <span class="pill you">you</span></span><span class="note">Not before you know what the free tier converts at.</span></span></label>
+      </div>
+
+      <div class="flag">
+        <span class="t">If you do one thing this week</span>
+        Take the 25% off the site. Everything else can follow. That single banner is the difference between
+        a launch and a complaint, and it costs an afternoon to remove.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div>
+        <div class="sig">DIY DAY - Launch Plan v1</div>
+        <div>26 October 2026 · prepared for Dal Hopwood by Banksy</div>
+      </div>
+      <div class="disclaim">
+        Affiliate rates were checked on 26 Oct 2026 and change without notice; Screwfix's closure is from
+        their own page, other rates are indicative from affiliate directories. Revenue figures are
+        arithmetic illustrations, not forecasts. Nothing here is legal, tax or financial advice - the
+        paperwork needs a qualified eye.
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var KEY = "diyday-launch-v1";
+
+  /* ── checklist + progress ── */
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.chk input'));
+  var fill = document.getElementById('pfill');
+  var countEl = document.getElementById('pcount');
+
+  function load(){
+    var raw = null;
+    try { raw = localStorage.getItem(KEY); } catch(e){}
+    if(!raw) return;
+    try {
+      var st = JSON.parse(raw);
+      boxes.forEach(function(b){ if(st[b.dataset.k]) b.checked = true; });
+    } catch(e){}
+  }
+  function save(){
+    var st = {};
+    boxes.forEach(function(b){ if(b.checked) st[b.dataset.k] = 1; });
+    try { localStorage.setItem(KEY, JSON.stringify(st)); } catch(e){}
+  }
+  function paint(){
+    var done = boxes.filter(function(b){ return b.checked; }).length;
+    var total = boxes.length;
+    var pct = total ? Math.round(done/total*100) : 0;
+    fill.style.width = pct + '%';
+    countEl.textContent = done + ' / ' + total;
+    document.title = (done ? '(' + done + '/' + total + ') ' : '') + 'DIY DAY - Launch Plan v1 · 26 October 2026';
+  }
+
+  load(); paint();
+  boxes.forEach(function(b){
+    b.addEventListener('change', function(){ save(); paint(); });
+  });
+  document.getElementById('reset').addEventListener('click', function(){
+    boxes.forEach(function(b){ b.checked = false; });
+    save(); paint();
+  });
+
+  /* ── revenue calculator ── */
+  var subsEl  = document.getElementById('subsRange');
+  var priceEl = document.getElementById('priceRange');
+  var subsV   = document.getElementById('subsv');
+  var priceV  = document.getElementById('pricev');
+  var grossEl = document.getElementById('gross');
+  var stripeEl= document.getElementById('stripe');
+  var netEl   = document.getElementById('net');
+  var permoEl = document.getElementById('permo');
+
+  function gbp(n, dp){
+    var v = n.toLocaleString('en-GB', {minimumFractionDigits: dp, maximumFractionDigits: dp});
+    return '£' + v;
+  }
+  function calc(){
+    var subs  = parseInt(subsEl.value, 10);
+    var price = parseInt(priceEl.value, 10) / 100;      /* pence -> pounds */
+    subsV.textContent  = subs.toLocaleString('en-GB');
+    priceV.textContent = gbp(price, 2);
+
+    var gross = subs * price;
+    /* Stripe UK consumer card: 1.5% + 20p per charge */
+    var stripe = subs * ((price * 0.015) + 0.20);
+    var net = gross - stripe;
+
+    grossEl.textContent  = gbp(gross, 0);
+    stripeEl.textContent = '-' + gbp(stripe, 0);
+    netEl.textContent    = gbp(net, 0);
+    permoEl.textContent  = gbp(net / 12, 0);
+  }
+  subsEl.addEventListener('input', calc);
+  priceEl.addEventListener('input', calc);
+  calc();
+
+  /* ── copy to clipboard, with execCommand fallback ── */
+  function copyText(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function(res, rej){
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy') ? res() : rej(new Error('copy failed')); }
+      catch(e){ rej(e); }
+      finally { document.body.removeChild(ta); }
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.copybtn'), function(btn){
+    btn.addEventListener('click', function(){
+      var src = document.getElementById(btn.dataset.copy);
+      copyText(src.innerText).then(function(){
+        btn.textContent = 'Copied';
+        btn.classList.add('done');
+        setTimeout(function(){ btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1800);
+      }).catch(function(){
+        btn.textContent = 'Select & copy';
+      });
+    });
+  });
+
+  /* ── prove the fonts actually loaded, don't assume ── */
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){
+      var ok = document.fonts.check('900 40px Inter');
+      document.documentElement.setAttribute('data-font', ok ? 'inter-loaded' : 'inter-fallback');
+    });
+  }
+})();
+</script>
+</body>
+</html>
